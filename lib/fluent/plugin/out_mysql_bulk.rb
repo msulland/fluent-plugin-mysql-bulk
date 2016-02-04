@@ -3,6 +3,8 @@ module Fluent
   class Fluent::MysqlBulkOutput < Fluent::BufferedOutput
     Fluent::Plugin.register_output('mysql_bulk', self)
 
+    config_param :configuration_file, :string
+                 
     config_param :host, :string, default: '127.0.0.1'
     config_param :port, :integer, default: 3306
     config_param :database, :string
@@ -74,6 +76,7 @@ module Fluent
 
     def client
       Mysql2::Client.new(
+          default_file: @configuration_file,
           host: @host,
           port: @port,
           username: @username,

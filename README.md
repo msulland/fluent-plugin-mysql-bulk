@@ -22,6 +22,7 @@ fluent plugin mysql bulk insert is high performance and on duplicate key update 
 
 param|value
 --------|------
+configuration_file|path to your configuration file, e.f. my.cnf
 host|database host(default: 127.0.0.1)
 database|database name(require)
 username|user(require)
@@ -36,6 +37,7 @@ on_duplicate_update_keys|on duplicate key update column, comma separator
 
 ```
 <match mysql.input>
+  configuration_file /home/<me>/.my.cnf
   type mysql_bulk
   host localhost
   database test_app_development
