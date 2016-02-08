@@ -22,7 +22,8 @@ fluent plugin mysql bulk insert is high performance and on duplicate key update 
 
 param|value
 --------|------
-configuration_file|path to your configuration file, e.f. my.cnf
+configuration_file|path to your configuration file, e.g. my.cnf
+configuration_group|group in configuration file to be used, e.g. fluentd
 host|database host(default: 127.0.0.1)
 database|database name(require)
 username|user(require)

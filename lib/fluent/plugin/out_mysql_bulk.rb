@@ -4,6 +4,7 @@ module Fluent
     Fluent::Plugin.register_output('mysql_bulk', self)
 
     config_param :configuration_file, :string
+    config_param :configuration_group, :string
                  
     config_param :host, :string, default: '127.0.0.1'
     config_param :port, :integer, default: 3306
@@ -77,6 +78,7 @@ module Fluent
     def client
       Mysql2::Client.new(
           default_file: @configuration_file,
+          default_group: @configuration_group,
           host: @host,
           port: @port,
           username: @username,
